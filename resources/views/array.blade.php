@@ -18,6 +18,11 @@
     </header>
     <main>
         <div>Товары</div>
+        <div class="functions">
+            <a href="#">Перемешать</a>
+            <a href="#">Отсортировать</a>
+            <a href="#">Отфильтровать (цена > 1000)</a>
+        </div>
         <div class="card-grid">
             @foreach($array as $item)
                 <div class="card">
