@@ -31,7 +31,18 @@ class MainController extends Controller
 
     public function sortArray() {
         $array = $this->array;
-        sort($this->array, SORT_ASC);
+
+        $count = count($array);
+        for ($i = 0; $i < $count - 1; $i++) {
+            for ($j = 0; $j < $count - $i - 1; $j++) {
+                if ($array[$j]['price'] > $array[$j + 1]['price']) {
+                    $temp = $array[$j];
+                    $array[$j] = $array[$j + 1];
+                    $array[$j + 1] = $temp;
+                }
+            }
+        }  
+
         return view('array', ['array' => $array]);
     }
 
