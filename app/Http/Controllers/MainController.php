@@ -41,7 +41,7 @@ class MainController extends Controller
                     $array[$j + 1] = $temp;
                 }
             }
-        }  
+        }
 
         return view('array', ['array' => $array]);
     }
