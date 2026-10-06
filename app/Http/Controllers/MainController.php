@@ -7,11 +7,11 @@ use Illuminate\Http\Request;
 class MainController extends Controller
 {
     public $array = [
-        ['id' => 1, 'title' => 'продукт 1', 'price' => 500, 'path' => '1.jpg'],
+        ['id' => 1, 'title' => 'продукт 1', 'price' => 1500, 'path' => '1.jpg'],
         ['id' => 2, 'title' => 'продукт 2', 'price' => 500, 'path' => '2.jpg'],
-        ['id' => 3, 'title' => 'продукт 3', 'price' => 500, 'path' => '3.jpg'],
-        ['id' => 4, 'title' => 'продукт 4', 'price' => 500, 'path' => '4.jpg'],
-        ['id' => 5, 'title' => 'продукт 5', 'price' => 500, 'path' => '5.jpg']
+        ['id' => 3, 'title' => 'продукт 3', 'price' => 5000, 'path' => '3.jpg'],
+        ['id' => 4, 'title' => 'продукт 4', 'price' => 300, 'path' => '4.jpg'],
+        ['id' => 5, 'title' => 'продукт 5', 'price' => 700, 'path' => '5.jpg']
     ];
 
     public function showIndex() {
@@ -24,15 +24,25 @@ class MainController extends Controller
     }
 
     public function shuffleArray() {
-
+        $array = $this->array;
+        shuffle($array);
+        return view('array', ['array' => $array]);
     }
 
     public function sortArray() {
-        //$array = sort($this->array, SORT_ASC);
-        //return view('array', compact('array'));
+        $array = $this->array;
+        sort($this->array, SORT_ASC);
+        return view('array', ['array' => $array]);
     }
 
     public function filterArray() {
+        $filteredArray = [];
+        foreach ($this->array as $item) {
+            if ($item['price'] > 1000) {
+                $filteredArray[] = $item;
+            }
+        }
 
+        return view('array', ['array' => $filteredArray]);
     }
 }

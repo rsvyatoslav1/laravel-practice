@@ -19,9 +19,9 @@
     <main>
         <div>Товары</div>
         <div class="functions">
-            <a href="#">Перемешать</a>
-            <a href="#">Отсортировать</a>
-            <a href="#">Отфильтровать (цена > 1000)</a>
+            <a href="{{ route('array.shuffle') }} ">Перемешать</a><br>
+            <a href="{{ route('array.sort') }}">Отсортировать</a><br>
+            <a href="{{ route('array.filter') }}">Отфильтровать (цена > 1000)</a><br>
         </div>
         <div class="card-grid">
             @foreach($array as $item)
