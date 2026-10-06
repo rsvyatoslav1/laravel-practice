@@ -10,11 +10,8 @@
 </head>
 <body>
     <header>
-        <div>Шапка</div>
-        <div>
-            <a href="/home">Главная</a>
-            <a href="/array">Массивы</a>
-        </div>
+        <a href="/home">Главная</a>
+        <a href="/array">Массивы</a>
     </header>
     <main>
         <div>Основная часть</div>
