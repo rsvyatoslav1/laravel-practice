@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\ReportController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -24,3 +25,9 @@ Route::get('/array/shuffle', [MainController::class, 'shuffleArray'])-> name('ar
 Route::get('/array/sort', [MainController::class, 'sortArray'])-> name('array.sort');
 
 Route::get('/array/filter', [MainController::class, 'filterArray'])-> name('array.filter');
+
+Route::get('/reports', [ReportController::class, 'index'])->name('reports.index');
+
+Route::get('/reports/create', function () {
+    return view('reports.create');
+})->name('reports.create');
