@@ -21,6 +21,7 @@
                     <p>{{ $report->number }}</p>
                     <p>{{ $report->description }}</p>
                     <p>{{ $report->created_at }}</p>
+                    <p>{{ $report->status->name }}</p>
                     <form method="POST" action="{{ route('reports.destroy', $report->id) }}">
                         @method('DELETE')
                         @csrf
