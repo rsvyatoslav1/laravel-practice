@@ -11,6 +11,9 @@ class ReportController extends Controller
     public function index(Request $request) {
         //$reports = Report::paginate(8);
         //return view('report.index', compact('reports'));
+
+        
+        /*
         $status = $request->input('status');
         $validate = $request->validate([
             'status' => "exists:statuses,id"
@@ -26,6 +29,25 @@ class ReportController extends Controller
             $reports = Report::orderBy('created_at', $sort)->paginate(8);
         } else {
             $reports = Report::paginate(8);
+        }
+        */
+
+        $sort = $request->input('sort');
+        if ($sort != 'asc' && $sort != 'desc') {
+            $sort = 'desc';
+        }
+
+        $status = $request->input('status');
+        $validate = $request->validate([
+            'status' => "exists:statuses,id"
+        ]);
+        if ($validate) {
+            $reports = Report::where('status_id', $status)
+                ->orderBy('created_at', $sort)
+                ->paginate(8);
+        } else {
+            $reports = Report::orderBy('created_at', $sort)
+                ->paginate(8);
         }
 
         $statuses = Status::all();
