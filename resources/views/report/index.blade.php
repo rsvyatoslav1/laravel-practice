@@ -15,6 +15,23 @@
     <main>
         <div>Основная часть</div>
         <a href="{{ route('reports.create') }}">Создать заявку</a><br><br>
+        <div>
+            <span>Сортировка по дате создания:</span><br>
+            <a href="{{ route('reports.index', ['sort' => 'desc', 'status' => $status]) }}">сначала новые</a><br>
+            <a href="{{ route('reports.index', ['sort' => 'asc', 'status' => $status]) }}">сначала старые</a>
+        </div>
+        <div>
+            <span>Фильтрация по статусу заявки:</span>
+            <ul>
+                @foreach($statuses as $status)
+                    <li>
+                        <a href="{{ route('reports.index', ['sort' => $sort, 'status' => $status->id]) }}">
+                            {{ $status->name }}
+                        </a>
+                    </li>
+                @endforeach
+            </ul>
+        </div>
         <div class="card-grid">
             @foreach ($reports as $report)
                 <div class="card">
@@ -31,6 +48,8 @@
                 </div>
             @endforeach
         </div>
+        <br><br>
+        {{$reports->links()}}
     </main>
     <footer>
         Copyright Рудин Святослав Иванович 2026

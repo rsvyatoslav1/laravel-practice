@@ -26,6 +26,7 @@ Route::get('/array/sort', [MainController::class, 'sortArray'])-> name('array.so
 
 Route::get('/array/filter', [MainController::class, 'filterArray'])-> name('array.filter');
 
+
 Route::get('/reports', [ReportController::class, 'index'])->name('reports.index');
 
 Route::get('/reports/create', function () {
