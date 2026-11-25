@@ -1,3 +1,4 @@
+<!--
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,3 +25,22 @@
     </footer>
 </body>
 </html>
+-->
+
+<x-app-layout>
+    
+    <header>
+        Нарушений нет
+    </header>
+    <main>
+        <form method="POST" action="{{ route('reports.store') }}">
+            @csrf
+            <input name="number" type="text" placeholder="Введите номер авто"><br>
+            <textarea name="description" type="text" placeholder="Введите описание нарушения"></textarea><br>
+            <input type="submit" value="Создать">
+        </form>
+    </main>
+    <footer>
+        Copyright Рудин Святослав Иванович 2026
+    </footer>
+</x-app-layout>
